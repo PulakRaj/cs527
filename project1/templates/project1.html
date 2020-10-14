@@ -9,10 +9,17 @@
                 <input type="radio" name="options" id ='my_redshift' value ='my_redshift'>Redshift
             </p>
                 <label for="query">Query:</label>
-                <div><textarea name="my_query" rows="25" cols="100"></textarea></div>
+                <div><textarea name="my_query" rows="25" cols="100"></textarea>&emsp;&emsp;Elapsed time: {{time}} seconds</div>
+                
                 <br />
-                <input type="submit"></input>
+                <input type="submit"></input> 
+                
         </form>
-        {{data}}
+        {% for item in data %}
+        <tr>
+            <td>{{item}}</td>
+            <br>
+        </tr>
+        {% endfor %}
     </body>
 </html>
