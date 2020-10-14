@@ -41,7 +41,5 @@ def index():
         fetchdata = "There is an error in your program."
     return render_template('project1.html', data = fetchdata)
             
-
-
 if __name__ == "__main__":
     app.run(debug=True)
