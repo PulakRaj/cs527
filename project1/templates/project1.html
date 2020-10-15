@@ -6,15 +6,18 @@
         <form method = 'POST' action ="">
             <p style = "text-align:center;">
                 <input type="radio" name="options" id='my_mysql' value ='my_mysql' checked='checked'>MySQL &emsp;&emsp;&emsp;&emsp;
-                <input type="radio" name="options" id ='my_redshift' value ='my_redshift'>Redshift
+                <input type="radio" name="options" id ='my_redshift' value ='my_redshift'>Redshift<br><br>
+                <input type="radio" name="db" id='my_instacart' value ='my_instacart' checked='checked'>Instacart &emsp;&emsp;&emsp; 
+                <input type="radio" name="db" id ='my_abc' value ='my_abc'>ABC Retail
             </p>
                 <label for="query">Query:</label>
                 <div><textarea name="my_query" rows="25" cols="100"></textarea>&emsp;&emsp;Elapsed time: {{time}} seconds</div>
                 
-                <br />
+                <br>
                 <input type="submit"></input> 
                 
         </form>
+        <img src="https://i.ibb.co/3d9c3YC/er-diagram-final.png" alt="ER Diagram"><br>
         {% for item in data %}
         <tr>
             <td>{{item}}</td>

@@ -27,6 +27,10 @@ def index():
             start_time = time.time()
             query_details = request.form
             query = query_details['my_query']
+            if query_details['db'] == 'my_instacart':
+                app.config['MYSQL_DB'] = 'instacart'
+            elif query_details['db'] == 'my_abc':
+                app.config['MYSQL_DB'] = 'ABC'
             if query_details['options'] == 'my_mysql':
                 cur = mysql.connection.cursor()
                 cur.execute(query)
