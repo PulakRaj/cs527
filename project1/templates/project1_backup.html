@@ -18,22 +18,14 @@
                 
         </form>
         <img src="https://i.ibb.co/3d9c3YC/er-diagram-final.png" alt="ER Diagram"><br>
-        <table>
-            <tr>
-                {% for header in field_names %}
-                    <th>{{header}}</th>
-                {% endfor %}
-            </tr>
-            {% for item in data %}     
-                <tr>
-                    {% for entry in item %}
-                    <td>{{entry}}</td>
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-        </table>
-      
+        {% for item in data %}
+        <tr>
+            <td>{{item}}</td>
+            <br>
+        </tr>
+        {% endfor %}
         <br>
         {{error}}
+        {{field_names}}
     </body>
 </html>

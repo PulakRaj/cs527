@@ -22,7 +22,6 @@ redshift = psycopg2.connect(dbname = 'instacart',
 def index():
     elapsed_time = 0
     error = ''
-    field_names = []
     try:
         fetchdata = ''
         if request.method == 'POST':
@@ -48,21 +47,19 @@ def index():
                 cur.execute(query)
                 mysql.connection.commit()
                 fetchdata = cur.fetchall()
-                field_names = [i[0] for i in cur.description]
                 cur.close
                 elapsed_time = time.time() - start_time
             elif query_details['options'] == 'my_redshift':
                 cur = redshift.cursor()
                 cur.execute(query)
                 fetchdata = cur.fetchall()
-                field_names = [i[0] for i in cur.description]
                 cur.close()
                 elapsed_time = time.time() - start_time
     except mysql.connect.DatabaseError:
         error = "There is an error in your SQL syntax."
     except:
         error = "There is an error in your program."
-    return render_template('project1.html', data = fetchdata, time = elapsed_time, error = error, field_names = field_names)
+    return render_template('project1.html', data = fetchdata, time = elapsed_time, error = error)
 
             
 if __name__ == "__main__":

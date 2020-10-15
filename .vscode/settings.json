@@ -1,5 +1,20 @@
 {
     "cSpell.words": [
-        "instacart"
+        "dbname",
+        "instacart",
+        "psycopg"
+    ],
+    "cSpell.ignoreWords": [
+        "axjuw",
+        "bq",
+        "c",
+        "c dutp axjuw",
+        "cy",
+        "cy bq rmcwmp",
+        "dutp",
+        "flask",
+        "flask mysqldb",
+        "mysqldb",
+        "rmcwmp"
     ]
 }
