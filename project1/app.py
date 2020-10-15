@@ -21,6 +21,7 @@ redshift = psycopg2.connect(dbname = 'instacart',
 @app.route('/', methods=['GET', 'POST'])
 def index():
     elapsed_time = 0
+    error = ''
     try:
         fetchdata = ''
         if request.method == 'POST':
@@ -36,7 +37,7 @@ def index():
                             password = 'Admin123')
             elif query_details['db'] == 'my_abc':
                 app.config['MYSQL_DB'] = 'ABC'
-                redshift = psycopg2.connect(dbname = 'abcd', 
+                redshift = psycopg2.connect(dbname = 'abc', 
                             host = 'cs527-cluster.c9dutp9axjuw.us-east-2.redshift.amazonaws.com', 
                             port = '5439', 
                             user = 'admin', 
@@ -55,10 +56,10 @@ def index():
                 cur.close()
                 elapsed_time = time.time() - start_time
     except mysql.connect.DatabaseError:
-        fetchdata = "There is an error in your SQL syntax."
+        error = "There is an error in your SQL syntax."
     except:
-        fetchdata = "There is an error in your program."
-    return render_template('project1.html', data = fetchdata, time = elapsed_time)
+        error = "There is an error in your program."
+    return render_template('project1.html', data = fetchdata, time = elapsed_time, error = error)
 
             
 if __name__ == "__main__":
