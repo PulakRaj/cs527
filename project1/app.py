@@ -29,8 +29,18 @@ def index():
             query = query_details['my_query']
             if query_details['db'] == 'my_instacart':
                 app.config['MYSQL_DB'] = 'instacart'
+                redshift = psycopg2.connect(dbname = 'instacart', 
+                            host = 'cs527-cluster.c9dutp9axjuw.us-east-2.redshift.amazonaws.com', 
+                            port = '5439', 
+                            user = 'admin', 
+                            password = 'Admin123')
             elif query_details['db'] == 'my_abc':
                 app.config['MYSQL_DB'] = 'ABC'
+                redshift = psycopg2.connect(dbname = 'abcd', 
+                            host = 'cs527-cluster.c9dutp9axjuw.us-east-2.redshift.amazonaws.com', 
+                            port = '5439', 
+                            user = 'admin', 
+                            password = 'Admin123')
             if query_details['options'] == 'my_mysql':
                 cur = mysql.connection.cursor()
                 cur.execute(query)
